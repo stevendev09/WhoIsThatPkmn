@@ -7,20 +7,25 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './core/views/home/home.component';
 import { NotfoundComponent } from './core/views/notfound/notfound.component';
 import { ApiService } from '@services/api.service';
+import { FormsModule } from '@angular/forms';
+import { GameService } from '@services/game-service.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    GameService
   ],
   bootstrap: [AppComponent]
 })

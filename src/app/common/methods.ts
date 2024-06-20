@@ -1,3 +1,3 @@
 export enum GetMethods {
-    GET_INFO = 'api/user/authenticate'
+    GET_POKE = '/pokemon/'
 }
