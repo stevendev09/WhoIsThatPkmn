@@ -13,11 +13,8 @@ export class PlayFieldComponent implements OnInit {
   constructor(private _game: GameService) { 
   }
 
-
-
   ngOnInit() {
-    this._game.loadFirstGen();
-    this._game.generateOptions();
+    this._game.startGame();
   } 
 
 }

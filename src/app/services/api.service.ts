@@ -17,5 +17,9 @@ export class ApiService {
     return this._http.get<any>(URL);
   }
 
+  multipleGet(URLS: string[]): Observable<any>[] {
+    return URLS.map(URL => this.apiGetMethod(URL));
+  }
+
 
 }

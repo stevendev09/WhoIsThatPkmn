@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { GetMethods } from '@methods/methods';
 import { environment } from 'src/enviroments/enviroment.development';
 import { ApiService } from './api.service';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class GameService{
 
   private pokemonIds: number[] = [];
   public pokemonList: any[] = [];
+  public pokemonPicture: any;
 
 
   constructor(private _api: ApiService) { }
@@ -28,25 +30,34 @@ export class GameService{
 
   getPokemonInfo(array:number[]){
     this.pokemonList=[];
-
+    const URLS:string[] = [];
     for (const id of array) {
-      const URL = `${environment.ss + GetMethods.GET_POKE + id}`;
-      this._api.apiGetMethod(URL).subscribe({
-        next:(data:any)=>{
-          
-          let poke = {
-            'id': data.id,
-            'name': data.name,
-            'img': data.sprites.other.dream_world.front_default
-          }
+      let URL = `${environment.ss + GetMethods.GET_POKE + id}`;
+      URLS.push(URL);
+    }
+    const requests = this._api.multipleGet(URLS);
 
-          this.pokemonList.push(poke);
+      forkJoin(requests).subscribe({
+        next:(data:any)=>{
+
+
+          data.forEach(pokmn => {
+            let poke = {
+              'id': pokmn.id,
+              'name': pokmn.name,
+              'img': pokmn.sprites.other.dream_world.front_default
+            }
+            this.pokemonList.push(poke);
+            
+          });
+          console.log(this.pokemonList)
+          this.generatePicture()
+
         },
         error:(error:any)=>{
           console.log('Error', error);
         }
       });
-    }
   }
 
   generateOptions(){
@@ -55,5 +66,16 @@ export class GameService{
     this.pokemonIds = [];
   }
 
+  generatePicture(){
+    let number = Math.floor(Math.random()*4);
+    this.pokemonPicture= this.pokemonList[number];
+    console.log(this.pokemonPicture);
+  }
+
+
+  startGame(){
+    this.loadFirstGen();
+    this.generateOptions();
+  }
   
 }
