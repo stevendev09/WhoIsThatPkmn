@@ -9,6 +9,10 @@ import { NotfoundComponent } from './core/views/notfound/notfound.component';
 import { ApiService } from '@services/api.service';
 import { FormsModule } from '@angular/forms';
 import { GameService } from '@services/game-service.service';
+import { GamePictureComponent } from './core/layouts/game-picture/game-picture.component';
+import { GameOptionsComponent } from './core/layouts/game-options/game-options.component';
+import { PlayFieldComponent } from '@views/play-field/play-field.component';
+import { OptionComponent } from './core/components/option/option.component';
 
 
 @NgModule({
@@ -16,6 +20,10 @@ import { GameService } from '@services/game-service.service';
     AppComponent,
     HomeComponent,
     NotfoundComponent,
+    PlayFieldComponent,
+    GamePictureComponent,
+    GameOptionsComponent,
+    OptionComponent,
   ],
   imports: [
     BrowserModule,

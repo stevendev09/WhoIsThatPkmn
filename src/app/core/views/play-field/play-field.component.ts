@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { GameService } from '@services/game-service.service';
+import { GamePictureComponent } from '../../layouts/game-picture/game-picture.component';
 
 @Component({
   selector: 'app-play-field',
@@ -10,7 +11,7 @@ export class PlayFieldComponent implements OnInit {
 
   id:string;
 
-  constructor(private _game: GameService) { 
+  constructor(public _game: GameService) { 
   }
 
   ngOnInit() {

@@ -9,11 +9,19 @@ import { GameService } from '@services/game-service.service';
 export class GameOptionsComponent {
 
 
-  @Input() betslipService:GameService;
+  @Input() game:GameService;
 
   
-  constructor(private game:GameService){
+  constructor(){
     
+  }
+
+  selectOption(option){
+    if(option.id == this.game.pokemonPicture.id){
+      this.game.showImage=true;
+    }else{
+      console.log("lose");
+    }
   }
 
 

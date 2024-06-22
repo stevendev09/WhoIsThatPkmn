@@ -1,0 +1,12 @@
+.picture-layout{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.hidden{
+    filter: brightness(0);
+}
+.show{
+    filter: brightness(1);
+}

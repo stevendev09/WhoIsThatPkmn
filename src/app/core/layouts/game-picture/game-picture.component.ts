@@ -9,10 +9,10 @@ import { GameService } from '@services/game-service.service';
 export class GamePictureComponent {
 
 
-  @Input() betslipService:GameService;
+  @Input() game:GameService;
 
   
-  constructor(private game:GameService){
+  constructor(){
     
   }
 

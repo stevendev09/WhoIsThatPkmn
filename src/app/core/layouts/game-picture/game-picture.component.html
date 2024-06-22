@@ -1,1 +1,4 @@
-<p>game-picture works!</p>
+
+<div class="picture-layout">
+    <img class="hidden" [ngClass]="{'show':this.game.showImage}" [src]="this.game.pokemonPicture.img" alt="Pokemon" width="300px" height="300px">
+</div>

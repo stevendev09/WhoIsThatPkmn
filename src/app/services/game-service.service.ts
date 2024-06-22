@@ -13,6 +13,7 @@ export class GameService{
   private pokemonIds: number[] = [];
   public pokemonList: any[] = [];
   public pokemonPicture: any;
+  public showImage:boolean = false;
 
 
   constructor(private _api: ApiService) { }
@@ -50,7 +51,6 @@ export class GameService{
             this.pokemonList.push(poke);
             
           });
-          console.log(this.pokemonList)
           this.generatePicture()
 
         },
