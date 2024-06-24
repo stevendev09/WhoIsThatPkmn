@@ -19,9 +19,11 @@ export class GameOptionsComponent {
   selectOption(option){
     if(option.id == this.game.pokemonPicture.id){
       this.game.showImage=true;
+      this.game.wins ++;
     }else{
-      console.log("lose");
+      this.game.loses ++;
     }
+    this.game.disabledOptions=true;
   }
 
 

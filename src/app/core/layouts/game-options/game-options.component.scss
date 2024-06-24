@@ -17,4 +17,8 @@
             grid-template-rows: repeat(2, auto); /* Dos filas */
         }
     }
+
+    &-hide{
+        display: none;
+    }
 }

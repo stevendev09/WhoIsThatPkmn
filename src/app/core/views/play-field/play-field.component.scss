@@ -1,3 +1,11 @@
-.play-field{
+.play-field {
+    text-align: center;
 
+    .stats{
+        font-size: 18px;
+        margin-bottom: 15px;
+        span{
+            margin: 0 10px;
+        }
+    }
 }

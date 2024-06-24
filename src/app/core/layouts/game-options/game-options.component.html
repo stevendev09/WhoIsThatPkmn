@@ -1,6 +1,6 @@
 <div class="options">
     <!-- aqui va la flecha para pasar de pokemon -->
-    <div class="options-layout">
+    <div class="options-layout" [ngClass]="{'options-hide':this.game.disabledOptions}">
         <ng-container *ngFor="let option of this.game.pokemonList">
             <app-option (click)="this.selectOption(option)"
                 [option]="option">

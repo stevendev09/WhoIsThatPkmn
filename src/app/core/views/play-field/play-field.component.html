@@ -1,7 +1,17 @@
 <div class="play-field">
+
+    <h1>Who is that Pokemon?</h1>
     <app-game-picture
         [game]="this._game">
     </app-game-picture>
+
+    <div class="stats">
+        <button (click)="this._game.restartGame()">Restart Game</button>
+        <span>Counter: {{this._game.counter}}</span>
+        <span>Wins: {{this._game.wins}}</span>
+        <span>Loses: {{this._game.loses}}</span>
+        <button (click)="this._game.nextPokmn()">Next Pokemon</button>
+    </div>
     
     <app-game-options
         [game]="this._game">

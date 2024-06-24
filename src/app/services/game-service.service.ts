@@ -14,6 +14,11 @@ export class GameService{
   public pokemonList: any[] = [];
   public pokemonPicture: any;
   public showImage:boolean = false;
+  public disabledOptions=false;
+  public counter = 0;
+  public wins = 0;
+  public loses = 0;
+
 
 
   constructor(private _api: ApiService) { }
@@ -76,6 +81,22 @@ export class GameService{
   startGame(){
     this.loadFirstGen();
     this.generateOptions();
+  }
+
+  nextPokmn(){
+    this.counter++;
+    this.showImage = false;
+    this.disabledOptions=false;
+    this.startGame();
+  }
+
+  restartGame(){
+    this.counter=0;
+    this.wins=0;
+    this.loses=0;
+    this.showImage = false;
+    this.disabledOptions=false;
+    this.startGame();
   }
   
 }
